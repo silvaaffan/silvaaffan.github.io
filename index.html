@@ -436,6 +436,19 @@
     <script src="https://cdn.jsdelivr.net/npm/bs5-lightbox@1.8.3/dist/index.bundle.min.js"></script>
 
     <script>
+      // Mendapatkan URL halaman saat ini
+      var currentPageURL = window.location.href;
+    
+      // Membersihkan URL agar sesuai dengan aturan Disqus
+      var cleanedIdentifier = currentPageURL.replace(/[^a-zA-Z0-9]/g, '');
+    
+      // Mengatur identifier Disqus
+      this.page.identifier = cleanedIdentifier;
+    </script>
+    
+    
+
+    <script>
       // Menambahkan event listener pada tombol Kirim
       document.getElementById("submit-button").addEventListener("click", function (e) {
         var nama = document.getElementById("nama").value;
@@ -631,5 +644,12 @@
       document.querySelector('#nama').value = nama;
 
     </script>
+
+    <script>
+      function setDisqusIdentifier(identifier) {
+        this.page.identifier = identifier;
+      }
+    </script>
+
   </body>
 </html>
